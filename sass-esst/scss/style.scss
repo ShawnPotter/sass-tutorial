@@ -58,3 +58,10 @@ $buttons:
 @each $name, $bg, $col in $buttons {
   @include btn($name, $bg, $col);
 }
+
+$font-size: (3rem, 2.5rem, 2rem);
+@for $i from 1 through length($font-size) {
+  h#{$i} {
+    font-size: nth($font-size, $i);
+  }
+}
