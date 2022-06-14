@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "variables" as var;
 @use "base";
 
@@ -51,12 +52,23 @@ h1 {
   }
 }
 
-$buttons:
-  -primary #3ab5e9 hotpink,
-  -secondary green yellow;
+$buttons: 
+(
+  "-primary": 
+  (
+      RoyalBlue, 
+      #3ab5e9
+  ),
+  "-secondary": 
+  (
+      green, 
+      yellow
+  )
+);
 
-@each $name, $bg, $col in $buttons {
-  @include btn($name, $bg, $col);
+@include btn("");
+@each $key, $values in $buttons {
+  @include btn($key, $values...);
 }
 
 $font-size: (3rem, 2.5rem, 2rem);
@@ -65,3 +77,4 @@ $font-size: (3rem, 2.5rem, 2rem);
     font-size: nth($font-size, $i);
   }
 }
+
