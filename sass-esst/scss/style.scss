@@ -38,10 +38,14 @@ h1 {
   color: var.$primary;
 }
 
-@mixin btn($name: "", $bg: #444, $col: white) {
+@mixin btn($name: "", $bg: #444, $col: white, $oval: false) {
   .btn#{$name} {
     border: 0;
-    border-radius: 5px;
+    @if $oval {
+      border-radius: 50%;
+    } @else {
+      border-radius: 5px;
+    }
     background: $bg;
     font-size: 1rem;
     color: $col;
@@ -57,12 +61,20 @@ $buttons:
   "-primary": 
   (
       RoyalBlue, 
-      #3ab5e9
+      #3ab5e9,
+      false
   ),
   "-secondary": 
   (
       green, 
-      yellow
+      yellow,
+      false
+  ),
+  "-rounded":
+  (
+    white,
+    black,
+    true
   )
 );
 
@@ -77,4 +89,3 @@ $font-size: (3rem, 2.5rem, 2rem);
     font-size: nth($font-size, $i);
   }
 }
-
