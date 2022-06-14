@@ -1,0 +1,38 @@
+@use "variables" as var;
+@use "base";
+
+@mixin msg($bg:#888 ) {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: $bg;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 1.25rem;
+  margin: 1em 0;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    background: #555;
+  }
+
+  h1 {
+    color: darkmagenta;
+  }
+  
+}
+
+.msg {
+  @include msg;
+  
+  &-info {
+    background: rgb(136, 170, 182);
+    &:hover {
+      background: rgb(77, 97, 104)
+    }
+  }
+}
+
+h1 {
+  color: var.$primary;
+}
